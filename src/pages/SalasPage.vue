@@ -150,8 +150,7 @@ onMounted(carregar)
       <h1 class="text-xl font-semibold">Salas</h1>
 
       <button
-        class="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#003151] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#0F528A]"
-        type="button"
+        class="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#003151] px-7 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-[#0F528A]"        type="button"
         @click="novaSala"
       >
         + Nova sala

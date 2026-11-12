@@ -402,13 +402,13 @@ onMounted(() => {
 
       <button
         v-if="salaSelecionada"
-        type="button"
-        class="inline-flex items-center justify-center gap-2 rounded-lg bg-[#003151] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#0F528A]"
-        @click="abrirNovaReserva"
-      >
-        <i class="bi bi-plus-lg"></i>
-        Nova reserva
-      </button>
+          type="button"
+          class="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#003151] px-7 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-[#0F528A]"
+          @click="router.push('/reservas/nova')"
+        >
+          <i class="bi bi-plus-lg"></i>
+          Nova reserva
+        </button>
     </div>
 
     <!-- Componentes responsáveis por exibir mensagens de erro e sucesso -->
