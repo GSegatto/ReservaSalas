@@ -22,12 +22,14 @@ const erro = ref('')
 const sucesso = ref('')
 const enviando = ref(false)
 
+// Valores iniciais do formulário, obtidos a partir dos parâmetros da URL.
 const valoresIniciais = {
   salaId: Number(route.query.salaId) || null,
-  inicio: typeof route.query.inicio === 'string' ? route.query.inicio.slice(0, 16) : '',
+  inicio: typeof route.query.inicio === 'string' ? route.query.inicio.slice(0, 16) : '', //slice(0, 16) para ficar apenas YYYY-MM-DDTHH:mm
   fim: typeof route.query.fim === 'string' ? route.query.fim.slice(0, 16) : '',
 }
 
+//ReservaPayload é o tipo que representa os dados necessários no formato certo para criar uma nova reserva. 
 async function salvar(payload: ReservaPayload, limpar: () => void) {
   erro.value = ''
   sucesso.value = ''
@@ -44,6 +46,7 @@ async function salvar(payload: ReservaPayload, limpar: () => void) {
   }
 }
 
+// Carrega as salas ativas quando a página é aberta.
 onMounted(async () => {
   try {
     await salaStore.carregar()

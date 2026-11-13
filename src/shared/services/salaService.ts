@@ -1,6 +1,9 @@
 ﻿import { http } from './http'
 import type { Sala, SalaPayload } from '@/shared/types/sala'
 
+//Usa o Axios por meio do arquivo http.ts para fazer requisições HTTP à API
+
+//Preparação dos dados para o envio
 function criarFormData(payload: SalaPayload): FormData {
   const dados = new FormData()
 
@@ -14,6 +17,7 @@ function criarFormData(payload: SalaPayload): FormData {
   return dados
 }
 
+//OPERAÇÕES DO SISTEMA
 export const salaService = {
   async listar(): Promise<Sala[]> {
     return (await http.get<Sala[]>('/salas')).data

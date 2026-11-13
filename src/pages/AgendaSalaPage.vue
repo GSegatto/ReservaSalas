@@ -1,32 +1,23 @@
 <script setup lang="ts">
-// Importa recursos do Vue para reatividade, propriedades computadas,
-// execução de código ao montar o componente e observação de alterações.
-import { computed, onMounted, ref, watch } from 'vue'
 
-// Permite acessar os parâmetros da rota e navegar entre páginas.
+import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
-// Importa componentes reutilizáveis da aplicação.
 import AlertMessage from '@/shared/components/AlertMessage.vue'
 import AgendaGrid from '@/shared/components/agenda/AgendaGrid.vue'
 import AgendaSemanaGrid from '@/shared/components/agenda/AgendaSemanaGrid.vue'
 import AgendaMesGrid from '@/shared/components/agenda/AgendaMesGrid.vue'
 
-// Importa funções auxiliares para tratar mensagens de erro e datas.
 import { mensagemDeErro } from '@/shared/helpers/erro'
 import { formatarData } from '@/shared/helpers/agenda'
 
-// Importa o serviço responsável pelas requisições HTTP de reservas.
 import { reservaService } from '@/shared/services/reservaService'
 
-// Importa as stores que compartilham os dados entre os componentes.
 import { useReservaStore } from '@/shared/stores/reservaStore'
 import { useSalaStore } from '@/shared/stores/salaStore'
 
-// Importa o tipo Reserva para definir a estrutura dos objetos utilizados.
 import type { Reserva } from '@/shared/types/reserva'
 
-// Define os modos de visualização permitidos para o calendário.
 type ModoVisualizacao = 'dia' | 'trabalho' | 'semana' | 'mes'
 
 // Inicializa os recursos de rota e navegação.
@@ -55,8 +46,8 @@ const reservaSelecionada = ref<Reserva | null>(null)
 const confirmarCancelamento = ref(false)
 const cancelando = ref(false)
 
-// Define a visualização inicial do calendário como diária.
-const modoVisualizacao = ref<ModoVisualizacao>('dia')
+// Define a visualização inicial do calendário como trbalho.
+const modoVisualizacao = ref<ModoVisualizacao>('trabalho')
 
 // Retorna a data atual no formato YYYY-MM-DD.
 function dataLocalAtual(): string {
@@ -69,8 +60,7 @@ const dataSelecionada = ref(dataLocalAtual())
 // Obtém o identificador da sala a partir dos parâmetros da URL.
 const salaId = computed(() => Number(route.params.id))
 
-// Localiza a sala selecionada dentro das salas ativas da store.
-// O operador ?? retorna null caso nenhuma sala seja encontrada.
+
 const salaSelecionada = computed(() =>
   salaStore.salasAtivas.find((sala) => sala.id === salaId.value) ?? null,
 )

@@ -63,6 +63,7 @@ export function criarDataHora(
   const resultado = new Date(data)
   resultado.setHours(hora, minuto, 0, 0)
 
+  // Formata a data e hora no padrão ISO 8601 (YYYY-MM-DDTHH:mm)
   const ano = resultado.getFullYear()
   const mes = String(resultado.getMonth() + 1).padStart(2, '0')
   const dia = String(resultado.getDate()).padStart(2, '0')
