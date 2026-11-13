@@ -516,7 +516,7 @@ onMounted(() => {
       >
         <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
           <h2 class="font-semibold text-slate-800">
-            Calensário semanal
+            Calendário semanal
           </h2>
 
           <span class="text-xs text-slate-500">
